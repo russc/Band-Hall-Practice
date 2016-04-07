@@ -1,0 +1,9 @@
+{
+  "firebase": "bandhallpractice",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

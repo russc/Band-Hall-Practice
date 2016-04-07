@@ -1,0 +1,60 @@
+/* app css stylesheet */
+ .menu {
+    list-style: none;
+    border-bottom: 0.1em solid black;
+    margin-bottom: 2em;
+    padding: 0 0 0.5em;
+}
+.menu:before {
+    content:"[";
+}
+.menu:after {
+    content:"]";
+}
+.menu > li {
+    display: inline;
+}
+.menu > li:before {
+    content:"|";
+    padding-right: 0.3em;
+}
+.menu > li:nth-child(1):before {
+    content:"";
+    padding: 0;
+}
+ul {
+    list-style-type:none;
+    line-height:35px;
+}
+small {
+    color:#ff69b4;
+    font-size:1em;
+}
+nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+.leaderBoard div {
+    -webkit-column-count:3;
+    -moz-column-count:3;
+    -ms-column-count:3;
+    -o-column-count:3;
+    column-count:3
+    -webkit-column-gap:20px;
+    -moz-column-gap:20px;
+    -ms-column-gap:20px;
+    -o-column-gap:20px;
+    column-gap:20px;
+    columns:3;
+}
+.hip-green{
+    background:rgb(0, 255, 113);
+    font-family:Verdana;
+
+}
+.hip-blue{
+    background-color:#1DB7A9;
+    font-family:Verdana;
+    
+}

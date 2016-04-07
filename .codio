@@ -1,0 +1,13 @@
+{
+// Configure your Run and Preview buttons here.
+
+// Run button configuration
+  "commands": {
+        "Start Server": "npm start"
+  },
+
+// Preview button configuration
+  "preview": {
+        "Preview": "https://{{domain}}:9500/app"
+  }
+}

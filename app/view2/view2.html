@@ -1,0 +1,99 @@
+<!-- <body ng-controller="View2Ctrl"> -->
+<!-- anything typed in here is magically saved to Firebase! -->
+<!--     <input type="text" ng-model="students.text"/> -->
+<!-- all changes from Firebase magically appear here! -->
+<!--     <h1>You said: {{ students.text }}</h1> -->
+
+
+
+<!--   </body> -->
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#ccc;opacity:.9;">
+    <div class="container">
+        <form class=" form-signin" role="search">
+            <div class="form-group">
+                <h2 ng-hide="registerMode" class="form-signin-heading">Please sign in</h2>
+                <h2 ng-show="registerMode" class="form-signin-heading">Register</h2>
+
+                <label for="inputStudent" class="sr-only">Student ID</label>
+                <input type="text" id="inputStudent" ng-model="studentId" class="form-control" placeholder="Student Id" autofocus>
+
+                <label ng-show="registerMode" for="firstName" class="sr-only">First</label>
+                <input ng-show="registerMode" type="text" id="firstName" ng-model="firstName" class="form-control" placeholder="First Name">
+
+                <label ng-show="registerMode" for="LastName" class="sr-only">Last</label>
+                <input ng-show="registerMode" type="text" id="lastName" ng-model="lastName" class="form-control" placeholder="Last Name">
+
+            </div>
+            <button ng-hide="registerMode" class=" btn-lg hip-green btn btn-block" type="submit" ng-click="studentSignIn(studentId)">Sign In</button>
+
+            <button ng-show="registerMode" class="btn btn-sm btn-success " type="submit" ng-click="registerStudent()">Register and Sign In</button>
+            <button ng-show="registerMode" class="btn btn-sm btn-danger " type="submit" ng-click="cancelRegister()">Cancel</button>
+            <small>{{message}}</small>
+
+        </form>
+    </div>
+</nav>
+
+<body ng-controller="View2Ctrl">
+
+    <div class="container">
+
+        <form class="form-signin ">
+
+
+        </form>
+
+        <div class="col-md-3" style="margin-top:130px;">
+            <h3>Currently Practicing</h3>
+            <ul class="list-group row">
+
+                <li class="list-group-item " ng-repeat="student in students | orderBy:'timeIn':reverse">
+
+                    <p>
+                        <img src="{{student.avatar}}" alt="..." class="img-circle" width="40" height="40">{{student.name+" "+student.timeIn}}
+<!--                         <button class="btn btn-xs hip-blue" ng-click="processSignOut(student, student.id, student.timeIn, student.timeInStamp, student.name); ">Sign Out</button> -->
+                    </p>
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+        <div class="col-md-9 leaderBoard" style="margin-top:130px; height: 40%;">
+            <h3>Leader Board</h3>
+            <div>
+                <ol>
+                    <li ng-hide="rank.first == 'Test'" ng-repeat="rank in leaderBoard | orderBy:['-total','last']">
+                        {{rank.first.substring(0, 1).toUpperCase()+". "}}{{rank.last.substring(0, 1).toUpperCase()+". "}}<span class="badge">{{" "+rank.total}}</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="signedInAlert" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title">Success!!</h3>
+                </div>
+                <div class="modal-body">
+                    <h4>{{thisUser}} is {{state}} - {{thisTime}}</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
